@@ -71,6 +71,15 @@ else
     echo "[DONE] sort"
 fi
 
+
+JAR_URL="https://github.com/broadinstitute/picard/releases/download/3.4.0/picard.jar"
+JAR_FILE="picard-3.4.0.jar"
+
+if [ ! -f "$JAR_FILE" ]; then
+    echo "Downloading Picard 3.4.0..."
+    wget "$JAR_URL" -O "$JAR_FILE"
+fi
+
 #picard mark duplicates
 if [ -f "${REF}.bam"]; then
 
